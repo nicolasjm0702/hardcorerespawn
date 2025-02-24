@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DTD",
+    "DED",
+    "DWD"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "W": {
+      "item": "minecraft:wither_rose"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "hardcorerespawn:graveyard",
+    "count": 1
+  }
+}
