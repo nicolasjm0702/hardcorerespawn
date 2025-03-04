@@ -3,6 +3,7 @@ package br.nikao.hardcorerespawn;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -32,12 +33,16 @@ public class Hardcorerespawn {
 
     public static final RegistryObject<Item> GRAVEYARD_ITEM = ITEMS.register("graveyard", () -> new GraveyardItem(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> GRAVEYARD_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(GRAVEYARD_ITEM.get());
-            }).build());
+    public static final RegistryObject<CreativeModeTab> HARDCORE_RESPAWN_TAB = CREATIVE_MODE_TABS.register("hardcore_respawn_tab", () ->
+            CreativeModeTab.builder()
+                    .withTabsBefore(CreativeModeTabs.COMBAT)
+                    .title(Component.translatable("itemGroup.hardcorerespawn.hardcore_respawn_tab"))
+                    .icon(() -> GRAVEYARD_ITEM.get().getDefaultInstance())
+                    .displayItems((parameters, output) -> {
+                        output.accept(GRAVEYARD_ITEM.get());
+                    })
+                    .build()
+    );
 
     public Hardcorerespawn() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
